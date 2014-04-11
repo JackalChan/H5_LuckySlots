@@ -1,44 +1,63 @@
+function Data()
+{
 // -------------test--------------
-var lists = [ {'name': 'dinner', items: ['hambuger', 'rice'] }, {'name': 'winner', items: ['a', 'b', 'c']} ];
-var select = lists[0];
+  this.lists = [ {'name': 'dinner', items: ['hambuger', 'rice'] }, {'name': 'winner', items: ['a', 'b', 'c']} ];
+  this.select = this.lists[0].items;
 // -------------test--------------
 
+}
+
 // add name
-function addItem(name)
+Data.prototype.addItem = function(name)
 {
-  select.push(name);
-  savelists();
+  this.select.push(name);
+  this.savelists();
 }
 
 // remove item array[idx]
-function removeItem(idx)
+Data.prototype.removeItem = function(idx)
 {
-  select.splice(idx, 1);
-  savelists();
+  this.select.splice(idx, 1);
+  this.savelists();
 }
 
-function selectCategory(idx)
+Data.prototype.selectCategory = function(idx)
 {
-  select = lists[idx];
+  this.select = this.lists[idx].items;
 }
 
-function loadlists()
+Data.prototype.loadlists = function()
 {
-  lists = JSON.parse(localStorage['lists']);
+  this.lists = JSON.parse(localStorage['lists']);
 }
 
-function savelists()
+Data.prototype.savelists = function()
 {
-  localStorage['lists'] = JSON.stringify(lists);
+  localStorage['lists'] = JSON.stringify(this.lists);
 }
 
-function setlists()
+Data.prototype.setlists = function()
 {
   // for test
-  lists = [ {'name': 'dinner', items: ['hambuger', 'rice'] }, {'name': 'winner', items: ['a', 'b', 'c']} ];
+  this.lists = [ {'name': 'dinner', items: ['hambuger', 'rice'] }, {'name': 'winner', items: ['a', 'b', 'c']} ];
   savelists();
 }
 
+Data.prototype.getItemLists = function()
+{
+  return this.select;
+}
+
+var datas;
 function onSelectCategory(idx)
 {
+  datas = new Data();
+  var ellist = document.getElementById('itemlist');
+  var result = '';
+  console.log(datas.select);
+  datas.select.forEach(function(a)
+      {
+        result += '<div contenteditable>' + a + '</div>';
+      });
+  ellist.innerHTML = result;
 }
