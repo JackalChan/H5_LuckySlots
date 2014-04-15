@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bubububuuuuu</title>
+
+	<script type="text/javascript" src="js/set_script.js" defer></script>
+</head>
+
+<body>
+	<!-- menu page -->
+	<div id="menu-container">
+		<div>MENU LIST(click title to modify)</div>
+		<div>================================</div>
+
+		<!-- menu list -->
+		<div id="menu-list"></div>
+
+		<button id="add-menu-button" onclick="menuList.add()">add menu</button>
+		<button id="back-game-button" onclick="">back</button>
+	</div>
+
+	<!-- item page -->
+	<div id="item-container" style="display:none;">
+		<div>ITEM LIST</div>
+		<div>================================</div>
+
+		<!-- item list -->
+		<span>Menu title:</span>
+		<input type="text" id="menu-title">
+		<div id="item-list"></div>
+
+		<input type="text" id="add-item-text">
+		<button id="add-item-button">+</button>
+		<button id="save-menu-button" onclick="nowMenu.saveMenu()">save menu</button>
+		<button id="delete-menu-button"  onclick="nowMenu.deleteMenu()">delete menu</button>
+		<button id="back-menu-button" onclick="nowMenu.back()">back</button>
+	</div>
+
+</body>
+</html>
