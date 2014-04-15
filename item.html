@@ -2,17 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Timer</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <title>Lucky Shots</title>
+    <link rel="stylesheet" href="css/sitem.css"/>
     <script type="text/javascript" src="js/jitem.js"></script>
   </head>
-  <body>
+  <body onload="initItem()" onresize="resizeBudy()">
     <div id="mainitem">
       <div id="itemlist">
       </div>
-      <div id="itemnew" contenteditable="true">
+      <div id="itemnew">
+        <span id="newitem" contenteditable="true" placeholder="add a new item" onblur="onAddItem()"></span>
+        <span class="additem" onclick="onAddItem()">+</span>
       </div>
       <div id="itemcategory">
+        <span class="movecategory" id="catmoveleft" onmouseover="preCategory()" onmouseout="stopSelect()">&lt;</span>
+        <span class="onecategory" id="lcategory"></span>
+        <span class="onecategory" id="mcategory"></span>
+        <span class="onecategory" id="rcategory"></span>
+        <span class="movecategory" id="catmoveright">&gt;</span>
       </div>
     </div>
   </body>

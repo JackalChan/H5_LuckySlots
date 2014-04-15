@@ -1,0 +1,104 @@
+body
+{
+  background: lightyellow;
+}
+
+[contenteditable=true]:empty:before
+{
+  content: attr(placeholder);
+  color: lightgray;
+}
+
+span[contenteditable]
+{
+  width: 95%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.deleteitem
+{
+  background: red;
+  color: white;
+  float: right;
+  width: 3%;
+  text-align: center;
+}
+
+.deleteitem:hover
+{
+  box-shadow: 0px 0px 2px 2px darkred;
+}
+
+.additem
+{
+  background: gray;
+  color: white;
+  float: right;
+  width: 3%;
+  text-align: center;
+}
+
+.additem:hover
+{
+  box-shadow: 0px 0px 2px 2px darkgray;
+}
+
+.onecategory
+{
+  width: 18%;
+  display: inline-block;
+  background: pink;
+  text-align: center;
+  position: relative;
+  left: -18%;
+  z-index: 1;
+}
+
+.oneitem
+{
+  margin-top: 1px;
+  padding: 10px;
+  border: thin solid gray;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.movecategory
+{
+  width: 18%;
+  display: inline-block;
+  background: orange;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+#itemnew
+{
+  border: thin solid black;
+  margin-top: 10px;
+  padding: 10px;
+  background: white;
+}
+
+#catmoveright
+{
+  right: 18%;
+}
+
+#itemlist
+{
+  border: 5px solid black;
+  height: 60%;
+  overflow-y: scroll;
+  background: #CEF6F5;
+}
+
+#itemcategory
+{
+  width: 90%;
+  display: inline-block;
+  overflow: hidden;
+  display: none;
+}
