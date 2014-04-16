@@ -168,15 +168,19 @@ var leftpos = 0;
 function preCategory()
 {
   console.log('i');
-  preset = setTimeout(preCategory, 300);
-  leftpos++;
+  preset = setTimeout(preCategory, 50);
+  leftpos--;
+  if(leftpos == -19)
+  {
+    leftpos = 0;
+  }
   var ids = 'category';
   var els = ['l', 'm', 'r'];
   els.forEach(function(a)
       {
         var name = a + ids;
         var el = document.getElementById(name).style;
-        el.left = '-' + leftpos + '%';
+        el.left = leftpos + '%';
       });
 }
 

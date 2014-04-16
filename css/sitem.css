@@ -100,5 +100,5 @@ span[contenteditable]
   width: 90%;
   display: inline-block;
   overflow: hidden;
-  display: none;
+  margin-top: 10px;
 }
