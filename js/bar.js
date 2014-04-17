@@ -9,10 +9,12 @@ function Bar(obj)
   this.hidedownpercent = -20;
   this.polestatus = 1; // 1: up, 2: down, 3: hide
   this.obj = obj;
+  this.releasetime;
 }
 
 Bar.prototype.startMoveBar = function(pos)
 {
+  clearTimeout(this.releasetime);
   this.presspos = pos;
 }
 
@@ -29,40 +31,65 @@ Bar.prototype.moveBar = function(pos)
     {
       newp = this.downpercent;
     }
-    
-    if(newp != this.nowpercent)
+
+    if(this.changeObjPos(newp))
     {
-      this.obj.setTop(newp);
-      this.changePoleStatus(newp);
-      this.nowpercent = newp;
       this.startMoveBar(pos);
     }
   }
 }
 
+Bar.prototype.changeObjPos = function(newp)
+{
+  if(newp != this.nowpercent)
+  {
+    this.obj.setTop(newp);
+    this.changePoleStatus(newp);
+    this.nowpercent = newp;
+    return true;
+  }
+  return false;
+}
+
 Bar.prototype.changePoleStatus = function(newp)
 {
-      if(newp <= this.hidedownpercent && newp >= this.hidetoppercent &&
-          this.polestatus != 3)
-      {
-        this.polestatus = 3; // hide
-        this.obj.hidePole();
-      }
-      else if(newp > this.hidedownpercent && this.polestatus != 2)
-      {
-        this.polestatus = 2;
-        this.obj.downPole();
-      }
-      else if(newp < this.hidetoppercent && this.polestatus != 1)
-      {
-        this.polestatus = 1;
-        this.obj.upPole();
-      }
+  if(newp <= this.hidedownpercent && newp >= this.hidetoppercent &&
+     this.polestatus != 3)
+  {
+    this.polestatus = 3; // hide
+    this.obj.hidePole();
+  }
+  else if(newp > this.hidedownpercent && this.polestatus != 2)
+  {
+    this.polestatus = 2;
+    this.obj.downPole();
+  }
+  else if(newp < this.hidetoppercent && this.polestatus != 1)
+  {
+    this.polestatus = 1;
+    this.obj.upPole();
+  }
 }
 
 Bar.prototype.endMoveBar = function()
 {
-  this.presspos = -1;
+  if(this.presspos != -1)
+  {
+    var f = function()
+    {
+      var newp = this.nowpercent - 3;
+      if(newp < this.toppercent)
+      {
+        newp = this.toppercent;
+      }
+      if(this.changeObjPos(newp))
+      {
+        this.releasetime = setTimeout(f.bind(this), 30, false);
+      }
+    }
+    f.call(this);
+    this.presspos = -1;
+  }
 }
 
 Bar.prototype.setTotalSize = function(size)
@@ -101,16 +128,16 @@ EleBar.prototype.upPole = function()
 }
 
 var obar;
+var userAgent = navigator.userAgent.match('/Android|iPhone|iPad|iPod/i');
+var isTouch = 'ontouchstart' in window;
 
 function pressBar(event)
 {
-  var el = event.currentTarget;
   obar.startMoveBar(event.clientY);
 }
 
 function moveBar(event)
 {
-  var el = event.currentTarget;
   obar.moveBar(event.clientY);
 }
 
@@ -119,13 +146,32 @@ function releaseBar(event)
   obar.endMoveBar();
 }
 
+function touchPressBar(event)
+{
+  obar.startMoveBar(event[0].clientY);
+}
+
+function touchMoveBar(event)
+{
+  obar.moveBar(event[0].clientY);
+}
+
 function init()
 {
   var el = document.getElementById('startroll');
   obar = new Bar(new EleBar(el, document.getElementById('startpole')));
-  el.addEventListener('mousedown', pressBar, false);
-  window.addEventListener('mousemove', moveBar, false);
-  window.addEventListener('mouseup', releaseBar, false);
+  if(isTouch)
+  {
+    el.addEventListener('touchstart', touchPressBar, false);
+    window.addEventListener('touchmove', touchMoveBar, false);
+    window.addEventListener('touchend', releaseBar, false);
+  }
+  else
+  {
+    el.addEventListener('mousedown', pressBar, false);
+    window.addEventListener('mousemove', moveBar, false);
+    window.addEventListener('mouseup', releaseBar, false);
+  }
   el = document.getElementById('startbox');
   var cs = document.defaultView.getComputedStyle(el, null);
   obar.setTotalSize(cs.getPropertyValue('height'));
