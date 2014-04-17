@@ -1,0 +1,104 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+button {
+	font-size: 30px;
+}
+/*container*/
+.container {
+	
+}
+
+#menu-container {  
+	width: 100%;
+}
+.top-bar {
+	position:fixed;
+	top: 0;
+	width: 100%;
+
+	background-color: red;
+
+	line-height: 50px;
+	text-align: center;
+}
+
+/*main page*/
+#selectMenu {
+	width: 70%;
+	font-size: 40px;
+}
+#setting-button {
+	position: relative;
+	font-size: 40px;
+	float: right;
+}
+/*button*/
+.top-button {
+	position: absolute;
+}
+#back-game-button, #back-menu-button {
+	left: 10px;
+}
+#add-menu-button {
+	right: 10px
+}
+#save-menu-button {
+	position: absolute;
+	left: 50px;
+	bottom: 20px;
+}
+#delete-menu-button {
+	position: absolute;
+	right: 50px;
+	bottom: 20px;
+}
+
+/*list*/
+#menu-list {
+	position: relative;
+	top: 50px;
+	background-color: pink;
+	height: 100%;
+}
+#menu-list div {
+	border-bottom: 2px solid black;
+	padding: 20px 10px;
+	font-size: 35px;
+}
+#menu-title {
+	position: absolute;
+	top: 55px;
+	font-size: 30px;
+}
+#item-wrapper {
+	padding: 0 10px;
+}
+#add-item-bar {
+	position: absolute;
+	top: 105px;
+}
+#add-item-bar input {
+	font-size: 30px;
+}
+#add-item-bar button {
+	font-size: 30px;
+}
+#item-list {
+	position: relative;
+	top: 150px;
+	
+	height: 60%;
+	padding: 20px 10px;
+	
+	background-color: pink;
+}
+#item-list div {
+	border-bottom: 2px solid black;
+	padding: 5px 10px;
+	font-size: 30px;
+}
+#item-list button {
+	float: right;
+}

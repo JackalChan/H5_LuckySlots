@@ -8,12 +8,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style>
 
+  <!-- css -->
   <link rel="stylesheet" href="css/bar.css"/>
-  <script type="text/javascript" src="js/bar.js"></script>
+  <link rel="stylesheet" href="css/menu_page.css"/>
+
   <!-- javascript -->
-  <script type="text/javascript" src="js/set_script.js" defer></script>
   <script type="text/javascript" src="js/rotate_script.js" defer></script>
-  <script src="js/jquery-1.10.1.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/set_script.js" defer></script>
+  <script type="text/javascript" src="js/bar.js"></script>
+  <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
   
 
 
@@ -24,7 +27,8 @@
   <!-- main page -->
   <div id="main-container" class="container">
     <select id='selectMenu' style="float: left;"></select>
-    <canvas id="wheelcanvas" width="700" height="700"></canvas>
+    <button id="setting-button" onclick="menuList.show('menu')">setting</button>
+    <canvas id="wheelcanvas" width="700" height="500"></canvas>
     <div class="bar" id="startbox">
       <div class="barbase">
         <div class="barorbit"></div>
@@ -37,32 +41,34 @@
   </div>
   
   <!-- menu page -->
-  <div id="menu-container" class="container">
-    <div>MENU LIST(click title to modify)</div>
-    <div>================================</div>
+  <div id="menu-container" class="container" style="display:none;">
+    <div class="top-bar">項目列表</div>
+    <button id="back-game-button" class="top-button" onclick="menuList.show('main')">返回</button>
+    <button id="add-menu-button" class="top-button" onclick="menuList.add()">新增</button>
+    <!-- <div>================================</div> -->
 
     <!-- menu list -->
     <div id="menu-list"></div>
-
-    <button id="add-menu-button" onclick="menuList.add()">add menu</button>
-    <button id="back-game-button" onclick="">back</button>
   </div>
 
   <!-- item page -->
   <div id="item-container" class="container" style="display:none;">
-    <div>ITEM LIST</div>
-    <div>================================</div>
+    <div class="top-bar">詳細內容</div>
+    <button id="back-menu-button" class="top-button" onclick="nowMenu.back()">返回</button>
+    <!-- <div>================================</div> -->
 
     <!-- item list -->
-    <span>Menu title:</span>
-    <input type="text" id="menu-title">
-    <div id="item-list"></div>
-
-    <input type="text" id="add-item-text">
-    <button id="add-item-button">+</button>
-    <button id="save-menu-button" onclick="nowMenu.saveMenu()">save menu</button>
-    <button id="delete-menu-button"  onclick="nowMenu.deleteMenu()">delete menu</button>
-    <button id="back-menu-button" onclick="nowMenu.back()">back</button>
+    <!-- <span>Menu title:</span> -->
+    <div id="item-wrapper">
+      <input type="text" id="menu-title" placeholder="請輸入名稱">
+      <div id="add-item-bar">
+        <input type="text" id="add-item-text" placeholder="請輸入項目">
+        <button id="add-item-button">+</button>
+      </div>
+      <div id="item-list"></div>
+    </div>
+    <button id="save-menu-button" onclick="nowMenu.saveMenu()">儲存</button>
+    <button id="delete-menu-button"  onclick="nowMenu.deleteMenu()">刪除</button>
   </div>
 
 </body>

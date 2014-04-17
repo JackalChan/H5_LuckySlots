@@ -68,15 +68,23 @@ var menuList = {
 	},
 
 	show: function(str) {
+		var mainContainer = document.getElementById('main-container');
 		var menuContainer = document.getElementById('menu-container');
 		var itemContainer = document.getElementById('item-container');
 		if(str == 'menu') {
+			mainContainer.style.display = 'none';
 			menuContainer.style.display = 'block';
 			itemContainer.style.display = 'none';
 		}
 		else if(str == 'item') {
+			mainContainer.style.display = 'none';
 			menuContainer.style.display = 'none';
 			itemContainer.style.display = 'block';
+		}
+		else if(str == 'main') {
+			mainContainer.style.display = 'block';
+			menuContainer.style.display = 'none';
+			itemContainer.style.display = 'none';
 		}
 		this.update();
 	},

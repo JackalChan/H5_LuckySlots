@@ -4,6 +4,10 @@
   height: 400px;
   perspective: 100px;
   -webkit-perspective: 100px;
+
+  position: absolute;
+  top: 30%;
+  left: 25%;
 }
 
 .barbase
