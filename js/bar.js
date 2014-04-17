@@ -10,6 +10,7 @@ function Bar(obj)
   this.polestatus = 1; // 1: up, 2: down, 3: hide
   this.obj = obj;
   this.releasetime;
+  this.speed = 3;
 }
 
 Bar.prototype.startMoveBar = function(pos)
@@ -77,14 +78,21 @@ Bar.prototype.endMoveBar = function()
   {
     var f = function()
     {
-      var newp = this.nowpercent - 3;
+      var newp = this.nowpercent - this.speed;
       if(newp < this.toppercent)
       {
         newp = this.toppercent;
       }
       if(this.changeObjPos(newp))
       {
-        this.releasetime = setTimeout(f.bind(this), 30, false);
+        if(newp == this.toppercent)
+        {
+          notifyBarOnTop();
+        }
+        else
+        {
+          this.releasetime = setTimeout(f.bind(this), 30, false);
+        }
       }
     }
     this.presspos = -1;
@@ -95,6 +103,11 @@ Bar.prototype.endMoveBar = function()
 Bar.prototype.setTotalSize = function(size)
 {
   this.size = size.replace('px', '');
+}
+
+Bar.prototype.setSpeed = function(val)
+{
+  this.speed = val;
 }
 
 function EleBar(head, pole)
@@ -133,14 +146,25 @@ var isTouch = 'ontouchstart' in window;
 
 function pressBar(event)
 {
-  console.log(event);
-  obar.startMoveBar(event.clientY);
+  obar.startMoveBar(getPointY(event));
+}
+
+function getPointY(event)
+{
+  if(isTouch)
+  {
+    return event.touches[0].clientY;
+  }
+  else
+  {
+    return event.clientY;
+  }
 }
 
 function moveBar(event)
 {
   event.preventDefault();
-  obar.moveBar(event.clientY);
+  obar.moveBar(getPointY(event));
 }
 
 function releaseBar(event)
@@ -148,26 +172,20 @@ function releaseBar(event)
   obar.endMoveBar();
 }
 
-function touchPressBar(event)
+function notifyBarOnTop()
 {
-  console.log(event);
-  obar.startMoveBar(event.touches[0].clientY);
-}
-
-function touchMoveBar(event)
-{
-  event.preventDefault();
-  obar.moveBar(event.touches[0].clientY);
+  console.log('oh ya');
 }
 
 function init()
 {
   var el = document.getElementById('startroll');
   obar = new Bar(new EleBar(el, document.getElementById('startpole')));
+  obar.setSpeed(1);
   if(isTouch)
   {
-    el.addEventListener('touchstart', touchPressBar, false);
-    window.addEventListener('touchmove', touchMoveBar, false);
+    el.addEventListener('touchstart', pressBar, false);
+    window.addEventListener('touchmove', moveBar, false);
     window.addEventListener('touchend', releaseBar, false);
   }
   else
