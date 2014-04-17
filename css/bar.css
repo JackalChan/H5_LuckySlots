@@ -36,7 +36,8 @@
   border-radius: 50%;
   background: red;
   top: -60%;
-  z-index: 999;
+  transform: translatez(50px);
+  -webkit-transform: translatez(50px);
 }
 
 .barpole
@@ -47,7 +48,6 @@
   border-radius: 40% / 10%;
   position: relative;
   left: 45%;
-  z-index: 1;
 }
 
 .barpoleup
