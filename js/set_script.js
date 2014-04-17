@@ -82,7 +82,7 @@ var menuList = {
 			itemContainer.style.display = 'block';
 		}
 		else if(str == 'main') {
-			mainContainer.style.display = 'block';
+			mainContainer.style.display = 'flex';
 			menuContainer.style.display = 'none';
 			itemContainer.style.display = 'none';
 		}

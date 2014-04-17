@@ -34,8 +34,8 @@ button {
 #setting-button {
 	position: relative;
 	font-size: 40px;
-	float: right;
-	clear: both;
+	/*float: right;
+	clear: both;*/
 }
 /*button*/
 .top-button {
