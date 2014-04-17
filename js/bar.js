@@ -151,12 +151,12 @@ function releaseBar(event)
 function touchPressBar(event)
 {
   console.log(event);
-  obar.startMoveBar(event[0].clientY);
+  obar.startMoveBar(event.touches[0].clientY);
 }
 
 function touchMoveBar(event)
 {
-  obar.moveBar(event[0].clientY);
+  obar.moveBar(event.touches[0].clientY);
 }
 
 function init()

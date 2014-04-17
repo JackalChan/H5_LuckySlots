@@ -6,17 +6,6 @@
   -webkit-perspective: 100px;
 }
 
-@keyframes releasebar
-{
-  to { top: -70%; }
-}
-
-@-webkit-frames releasebar
-{
-/*  0% { top: 0%; }*/
-  100% { top: -70%; }
-}
-
 .barbase
 {
   background: lightyellow;
@@ -47,9 +36,7 @@
   border-radius: 50%;
   background: red;
   top: -60%;
-  z-index: 3;
-/*  animation: releasebar 2s;
-  -webkit-animation: releasebar 2s;*/
+  z-index: 2;
 }
 
 .barpole
