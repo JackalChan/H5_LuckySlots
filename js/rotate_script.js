@@ -21,11 +21,31 @@ window.onload = function() {
   initEvent();
   menuList.load();
 
-  restaurants = menuList.menus[0].items;
-  console.log(restaurants.length);
-
+  
+  
+  getMenuLsit();
   draw();
+
 }
+var menusName=[];
+function getMenuLsit(){
+  
+    for(i in menuList.menus){
+      menusName[i]=menuList.menus[i].name;
+      console.log(menusName[i]);
+      $("#selectMenu").append("<option value="+i+">"+menusName[i]+"</option>");
+      
+    }
+    restaurants = menuList.menus[0].items;
+
+}
+
+$('#selectMenu').change(function(){
+    console.log($( "select option:selected" ).attr('value'));
+    var number=$( "select option:selected" ).attr('value');
+    restaurants = menuList.menus[number].items;
+    draw();
+});
 
 function draw() {
   drawRouletteWheel();
