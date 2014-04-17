@@ -101,9 +101,15 @@ var menuList = {
 function initEvent() {
 	var addItemButton = document.getElementById('add-item-button');
 	var addItemText = document.getElementById('add-item-text');
-	addItemButton.onclick = function() {
-		nowMenu.addItem(addItemText.value);
-		addItemText.value = '';
+	// addItemButton.onclick = function() {
+	// 	nowMenu.addItem(addItemText.value);
+	// 	addItemText.value = '';
+	// }
+	addItemText.onkeyup = function(e) {
+		if (e.keyCode == 13) {
+			nowMenu.addItem(addItemText.value);
+			addItemText.value = '';
+		}
 	}
 }
 
