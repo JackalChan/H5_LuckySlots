@@ -31,10 +31,10 @@ function getMenuList(){
     for(i in menuList.menus){
       menusName[i]=menuList.menus[i].name;
       console.log(menusName[i]);
-      $("#selectMenu").append("<option value="+i+">"+menusName[i]+"</option>");
+      $("#selectMenu").prepend("<option value="+i+">"+menusName[i]+"</option>");
       
     }
-    restaurants = menuList.menus[0].items;
+    restaurants = menuList.menus[i].items;
 
     draw();
 }
