@@ -147,6 +147,7 @@ var isTouch = 'ontouchstart' in window;
 function pressBar(event)
 {
   obar.startMoveBar(getPointY(event));
+  spin();
 }
 
 function getPointY(event)
@@ -175,9 +176,10 @@ function releaseBar(event)
 function notifyBarOnTop()
 {
   console.log('oh ya');
+  rotateStop();
 }
 
-function init()
+function initBar()
 {
   var el = document.getElementById('startroll');
   obar = new Bar(new EleBar(el, document.getElementById('startpole')));

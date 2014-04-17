@@ -21,7 +21,7 @@ window.onload = function() {
   initEvent();
   menuList.load();
 
-  
+  initBar();
   
   getMenuLsit();
   draw();
