@@ -47,6 +47,7 @@
   border-radius: 50%;
   background: red;
   top: -60%;
+  z-index: 3;
 /*  animation: releasebar 2s;
   -webkit-animation: releasebar 2s;*/
 }
@@ -59,6 +60,7 @@
   border-radius: 40% / 10%;
   position: relative;
   left: 45%;
+  z-index: 1;
 }
 
 .barpoleup

@@ -87,8 +87,8 @@ Bar.prototype.endMoveBar = function()
         this.releasetime = setTimeout(f.bind(this), 30, false);
       }
     }
-    f.call(this);
     this.presspos = -1;
+    f.call(this);
   }
 }
 
@@ -133,11 +133,13 @@ var isTouch = 'ontouchstart' in window;
 
 function pressBar(event)
 {
+  console.log(event);
   obar.startMoveBar(event.clientY);
 }
 
 function moveBar(event)
 {
+  event.preventDefault();
   obar.moveBar(event.clientY);
 }
 
@@ -148,6 +150,7 @@ function releaseBar(event)
 
 function touchPressBar(event)
 {
+  console.log(event);
   obar.startMoveBar(event[0].clientY);
 }
 
