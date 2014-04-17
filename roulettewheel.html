@@ -1,18 +1,24 @@
-
 <!-- saved from url=(0076)http://tpstatic.com/_sotc/sites/default/files/1010/source/roulettewheel.html -->
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <script type="text/javascript">(function () {
-      return window.SIG_EXT = {};
-    })()</script><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style></head><body><input type="button" value="spin" onclick="spin();" style="float: left;">
-<canvas id="wheelcanvas" width="700" height="700"></canvas>
-<script type="application/javascript">
+  return window.SIG_EXT = {};
+})()</script>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style>
+</head>
+<body>
+  <input type="button" value="spin" onclick="spin();" style="float: left;">
+  <input type="button" value="stop" onclick="rotateStop();" style="float: left;">
+  <canvas id="wheelcanvas" width="700" height="700"></canvas>
+  <script type="application/javascript">
   var colors = ["#B8D430", "#3AB745", "#029990", "#3501CB",
-               "#2E2C75", "#673A7E", "#CC0071", "#F80120",
-               "#F35B20", "#FB9A00", "#FFCC00", "#FEF200"];
+  "#2E2C75", "#673A7E", "#CC0071", "#F80120",
+  "#F35B20", "#FB9A00", "#FFCC00", "#FEF200"];
   var restaraunts = ["雞肉飯1", "肯德基2", "麥當勞3", "Pizza",
-                     "雞肉飯4", "肯德基5", "麥當勞6", "肯德基7",
-                     "肯德基8", "麥當勞9", "盧肉販1", "盧肉販2"];
+  "雞肉飯4", "肯德基5", "麥當勞6", "肯德基7",
+  "肯德基8", "麥當勞9", "盧肉販1", "盧肉販2"];
   
   var startAngle = 0;
   var arc = Math.PI / 5;
@@ -21,7 +27,7 @@
   var spinArcStart = 10;
   var spinTime = 0;
   var spinTimeTotal = 0;
-  
+  var wheelStop = false;
   var ctx;
   
   function draw() {
@@ -64,9 +70,9 @@
         
 	//ctx.rotate( Math.PI*0.5);
 	
-        var text = restaraunts[i];	
-	for(j=0;j<text.length;j++)
-	{
+  var text = restaraunts[i];	
+  for(j=0;j<text.length;j++)
+  {
     ctx.save();
     var x = 250 + Math.cos(angle + arc / 2) * textRadius;
     var y = 250 + Math.sin(angle + arc / 2) * textRadius;
@@ -74,18 +80,18 @@
 	  //console.log(text[j]);
     //ctx.rotate(Math.atan((x-250)/(-y+250)));
     ctx.rotate(angle + arc / 2 + Math.PI / 2);
-	  ctx.fillText(text[j], -ctx.measureText(text).width / 6, 20*j );
+    ctx.fillText(text[j], -ctx.measureText(text).width / 6, 20*j );
     ctx.restore();
-	}
-	
-	
+  }
+
+
 	//ctx.rotate( Math.PI*0.5);
-        
+
 	//ctx.translate(100,300);
 	
-        ctx.restore();
-      } 
-      
+  ctx.restore();
+} 
+
       //Arrow
       ctx.fillStyle = "black";
       ctx.beginPath();
@@ -102,17 +108,25 @@
   }
   
   function spin() {
+    wheelStop = false;
     spinAngleStart = Math.random() * 10 + 10;
     spinTime = 0;
     spinTimeTotal = Math.random() * 3 + 4 * 1000;
     rotateWheel();
   }
   
+  function rotateStop() {
+    wheelStop = true;
+    console.log('msg')
+  } 
+
   function rotateWheel() {
-    spinTime += 30;
-    if(spinTime >= spinTimeTotal) {
-      stopRotateWheel();
-      return;
+    if(wheelStop) {
+      spinTime += 30;
+      if(spinTime >= spinTimeTotal) {
+        stopRotateWheel();
+        return;
+      }
     }
     var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
     startAngle += (spinAngle * Math.PI / 180);
@@ -139,4 +153,6 @@
   }
   
   draw();
-</script><div id="window-resizer-tooltip" style="display: block;"><a href="http://tpstatic.com/_sotc/sites/default/files/1010/source/roulettewheel.html#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png);"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1920</span> x <span class="tooltipHeight" id="winHeight">1053</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1920</span> x <span class="tooltipHeight" id="vpHeight">944</span></div></body></html>
+  </script>
+</body>
+</html>
