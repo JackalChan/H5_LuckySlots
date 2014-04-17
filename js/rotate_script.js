@@ -27,7 +27,6 @@ window.onload = function() {
 }
 var menusName=[];
 function getMenuList(){
-  alert('123');
   $("#selectMenu").empty();
     for(i in menuList.menus){
       menusName[i]=menuList.menus[i].name;

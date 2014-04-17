@@ -19,12 +19,15 @@ var menuList = {
 			tmp.exist = true;
 			tmp.name = '今日運勢！';
 			tmp.items = ['大吉', '吉', '小吉', '凶', '大凶'];
-			this.menus.push(tmp);
+			
 			var tmp2 = new MENU();
 			tmp2.exist = true;
 			tmp2.name = '中午吃什麼？';
 			tmp2.items = ['高雄空廚-葷', '高雄空廚-素'];
+			
 			this.menus.push(tmp2);
+			this.menus.push(tmp);
+			
 			localStorage.setItem("LuckyShots", JSON.stringify(menuList));
 		}
 		this.update();

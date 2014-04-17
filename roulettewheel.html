@@ -21,23 +21,23 @@
 
 <body>
 
-  <div class="bar" id="startbox">
-    <div class="barbase">
-      <div class="barorbit"></div>
+  <!-- main page -->
+  <div id="main-container" class="container">
+    <select id='selectMenu' style="float: left;"></select>
+    <canvas id="wheelcanvas" width="700" height="700"></canvas>
+    <div class="bar" id="startbox">
+      <div class="barbase">
+        <div class="barorbit"></div>
+      </div>
+      <div class="barpole barpoleup" id="startpole"></div>
+      <div id="startroll" class="barhead"></div>
     </div>
-    <div class="barpole barpoleup" id="startpole"></div>
-    <div id="startroll" class="barhead"></div>
+    <!-- <input type="button" value="spin" onclick="spin();" style="float: left;">
+    <input type="button" value="stop" onclick="rotateStop();" style="float: left;"> -->
   </div>
-    
-  <input type="button" value="spin" onclick="spin();" style="float: left;">
-  <input type="button" value="stop" onclick="rotateStop();" style="float: left;">
-
-  <select id='selectMenu' style="float: left;">
-
-  </select>
-  <canvas id="wheelcanvas" width="700" height="700"></canvas>
   
-  <div id="menu-container">
+  <!-- menu page -->
+  <div id="menu-container" class="container">
     <div>MENU LIST(click title to modify)</div>
     <div>================================</div>
 
@@ -49,7 +49,7 @@
   </div>
 
   <!-- item page -->
-  <div id="item-container" style="display:none;">
+  <div id="item-container" class="container" style="display:none;">
     <div>ITEM LIST</div>
     <div>================================</div>
 
