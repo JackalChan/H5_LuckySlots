@@ -35,9 +35,9 @@
   left: 25%;
   border-radius: 50%;
   background: red;
-  top: -60%;
-  transform: translatez(50px);
-  -webkit-transform: translatez(50px);
+  top: -45%;
+  transform: translatez(50px) scale(0.5, 0.5);
+  -webkit-transform: translatez(50px) scale(0.5, 0.5);
 }
 
 .barpole

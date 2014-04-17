@@ -2,11 +2,11 @@ function Bar(obj)
 {
   this.presspos = -1;
   this.size = 400;
-  this.toppercent = -60;
-  this.downpercent = -10;
-  this.nowpercent = -60;
-  this.hidetoppercent = -45;
-  this.hidedownpercent = -20;
+  this.toppercent = -45;
+  this.downpercent = -20;
+  this.nowpercent = -45;
+  this.hidetoppercent = -40;
+  this.hidedownpercent = -30;
   this.polestatus = 1; // 1: up, 2: down, 3: hide
   this.obj = obj;
   this.releasetime;
@@ -156,6 +156,7 @@ function touchPressBar(event)
 
 function touchMoveBar(event)
 {
+  event.preventDefault();
   obar.moveBar(event.touches[0].clientY);
 }
 
