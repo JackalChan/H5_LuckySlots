@@ -13,19 +13,33 @@ var menuList = {
 				this.menus[i].name = data[i].name;	
 				this.menus[i].items = data[i].items;
 			}
-			console.log(this.menus);
+		}
+		else {
+			var tmp = new MENU();
+			tmp.exist = true;
+			tmp.name = '今日運勢！';
+			tmp.items = ['大吉', '吉', '小吉', '凶', '大凶'];
+			this.menus.push(tmp);
+			var tmp2 = new MENU();
+			tmp2.exist = true;
+			tmp2.name = '中午吃什麼？';
+			tmp2.items = ['高雄空廚-葷', '高雄空廚-素'];
+			this.menus.push(tmp2);
+			localStorage.setItem("LuckyShots", JSON.stringify(menuList));
 		}
 		this.update();
 	},
 
 	// add a menu
 	add: function() {
+		this.load();
 		nowMenu = new MENU();
 		nowMenu.clearScene();
 		this.show('item');
 	},
 
 	modify: function(index) {
+		this.load();
 		nowMenu = this.menus[index];
 		nowMenu.clearScene();
 		nowMenu.update();
@@ -150,7 +164,12 @@ function MENU() {
 	}
 
 	this.deleteMenu = function() {
+		console.log(this);
 		var id = menuList.menus.indexOf(this);
+		if(id<0) {
+			this.back();
+			return;
+		}
 		menuList.menus.splice(id, 1);
 		localStorage.setItem("LuckyShots", JSON.stringify(menuList));
 		this.back();
