@@ -156,6 +156,8 @@ function MENU() {
 		}
 		localStorage.setItem("LuckyShots", JSON.stringify(menuList));
 		menuList.show('menu');
+
+		getMenuList();
 	}
 
 	this.deleteMenu = function() {
@@ -168,6 +170,8 @@ function MENU() {
 		menuList.menus.splice(id, 1);
 		localStorage.setItem("LuckyShots", JSON.stringify(menuList));
 		this.back();
+
+		getMenuList();
 	}
 
 	this.back = function() {

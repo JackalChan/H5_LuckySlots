@@ -23,13 +23,12 @@ window.onload = function() {
 
   initBar();
   
-  getMenuLsit();
-  draw();
-
+  getMenuList();
 }
 var menusName=[];
-function getMenuLsit(){
-  
+function getMenuList(){
+  alert('123');
+  $("#selectMenu").empty();
     for(i in menuList.menus){
       menusName[i]=menuList.menus[i].name;
       console.log(menusName[i]);
@@ -38,6 +37,7 @@ function getMenuLsit(){
     }
     restaurants = menuList.menus[0].items;
 
+    draw();
 }
 
 $('#selectMenu').change(function(){
