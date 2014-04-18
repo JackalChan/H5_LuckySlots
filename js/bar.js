@@ -79,6 +79,7 @@ Bar.prototype.endMoveBar = function()
     var f = function()
     {
       var newp = this.nowpercent - this.speed;
+      console.log(newp);
       if(newp < this.toppercent)
       {
         newp = this.toppercent;
@@ -96,7 +97,14 @@ Bar.prototype.endMoveBar = function()
       }
     }
     this.presspos = -1;
-    f.call(this);
+    if(this.nowpercent == this.toppercent)
+    {
+      notifyBarOnTop();
+    }
+    else
+    {
+      f.call(this);
+    }
   }
 }
 
