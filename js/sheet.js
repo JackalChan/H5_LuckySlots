@@ -22,3 +22,14 @@ function sheetDown() {
     }
   );
 }
+
+function sheetDelete() {
+  var t = document.getElementsByClassName('tearoff');
+  
+  var ripper = document.getElementById('ripper');
+  var r = document.createElement('div');
+  r.setAttribute('id', 'ripper');
+
+  t[0].removeChild(ripper);
+  t[0].appendChild(r);
+}

@@ -156,6 +156,7 @@ function pressBar(event)
 {
   obar.startMoveBar(getPointY(event));
   spin();
+  sheetDelete();
 }
 
 function getPointY(event)
