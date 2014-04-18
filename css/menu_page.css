@@ -30,11 +30,14 @@ button {
 #selectMenu {
 	width: 70%;
 	font-size: 40px;
+	position: relative;
+	float: left;
 }
 #setting-button {
 	position: relative;
 	font-size: 40px;
-	float: right;
+	/*float: right;
+	clear: both;*/
 }
 /*button*/
 .top-button {

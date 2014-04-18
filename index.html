@@ -10,26 +10,43 @@
 
   <!-- css -->
   <link rel="stylesheet" href="css/bar.css"/>
-  <link rel="stylesheet" href="css/menu_page.css"/>
-  <link rel="stylesheet" href="css/button.css"/>
 
+  <link rel="stylesheet" href="css/sheet.css"/>
+  <link rel="stylesheet" href="css/menu_page.css"/>
+  <link rel="stylesheet" href="css/index.css"/>
+  <link rel="stylesheet" href="css/button.css"/>
   <!-- javascript -->
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+
   <script type="text/javascript" src="js/rotate_script.js" defer></script>
   <script type="text/javascript" src="js/set_script.js" defer></script>
   <script type="text/javascript" src="js/bar.js"></script>
-  <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+  <script type="text/javascript" src="js/sheet.js"></script>
   
+  <script src="js/jquery.touchSwipe.min.js"></script>
+  <script src="js/TweenMax.min.js"></script>
+  <script src="js/jquery.gsap.min.js"></script>
+  <script src="js/jqSwipe.js"></script>
+
 
 
 </head>
 
 <body>
 
+
+  <!-- main page -->
+  
+  
+  <div id="header">
+    <select id='selectMenu'></select>
+    <button id="setting-button" onclick="menuList.show('menu')">setting</button>
+  </div>
+  
   <!-- main page -->
   <div id="main-container" class="container">
-    <select id='selectMenu' style="float: left;"></select>
-    <button id="setting-button" onclick="menuList.show('menu')">setting</button>
-    <canvas id="wheelcanvas" width="700" height="500"></canvas>
+    <canvas id="wheelcanvas" width="500" height="500"></canvas>
+
     <div class="bar" id="startbox">
       <div class="barbase">
         <div class="barorbit"></div>
@@ -37,11 +54,14 @@
       <div class="barpole barpoleup" id="startpole"></div>
       <div id="startroll" class="barhead"></div>
     </div>
+    <div class="tearoff">
+      <div id="ripper"></div>
+    </div>
+
     <!-- <input type="button" value="spin" onclick="spin();" style="float: left;">
     <input type="button" value="stop" onclick="rotateStop();" style="float: left;"> -->
   </div>
   
-  <!-- menu page -->
   <div id="menu-container" class="container" style="display:none;">
     <div class="top-bar">項目列表</div>
 
@@ -59,15 +79,18 @@
   <!-- item page -->
   <div id="item-container" class="container" style="display:none;">
     <div class="top-bar">詳細內容</div>
+
     <button id="back-menu-button" class="button small round orange" onclick="nowMenu.back()">返回</button>
 
 
     <div style='margin-top:10px;height:5px;background-color:burlywood;position: relative;'></div> 
+
     <!-- <div>================================</div> -->
 
     <!-- item list -->
     <!-- <span>Menu title:</span> -->
     <div id="item-wrapper">
+
       <input type="text" id="menu-title" style='border: 3px solid #a26b23;font-size:20px;' placeholder="請輸入名稱">
       <div class='addListBox'>
           <input type="text" id="add-item-text" class='inputBox' placeholder="請輸入項目">
@@ -84,6 +107,7 @@
       
     </div>
     
+
   </div>
 
 </body>

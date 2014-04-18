@@ -1,8 +1,9 @@
 var restaurants;
 
-var colors = ["#FFF", "#3AB745", "#029990", "#3501CB",
-"#2E2C75", "#673A7E", "#CC0071", "#F80120",
-"#F35B20", "#FB9A00", "#FFCC00", "#FEF200"];
+// var colors = ["#FFF", "#3AB745", "#029990", "#3501CB",
+// "#2E2C75", "#673A7E", "#CC0071", "#F80120",
+// "#F35B20", "#FB9A00", "#FFCC00", "#FEF200"];
+var colors = ["#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5"];
 // var restaurants = ["雞肉飯1", "肯德基2", "麥當勞3", "Pizza",
 // "雞肉飯4", "肯德基5", "麥當勞6", "肯德基7",
 // "肯德基8", "麥當勞9", "盧肉販1", "盧肉販2"];
@@ -22,7 +23,8 @@ window.onload = function() {
   menuList.load();
 
   initBar();
-  
+  initSheet();
+
   getMenuList();
 }
 var menusName=[];
@@ -66,14 +68,28 @@ function drawRouletteWheel() {
     
     ctx.font = 'bold 14px Arial';
     
+    ctx.fillStyle = "#F00";
+    ctx.beginPath();
+    ctx.arc(250, 250, outsideRadius+40, 0, Math.PI*2, false);
+    ctx.fill();
+
+    ctx.fillStyle = "#FEFF01";
+    ctx.beginPath();
+    ctx.arc(250, 250, outsideRadius+10, 0, Math.PI*2, false);
+    ctx.fill();
+
     for(var i = 0; i < 10; i++) {
       var angle = startAngle + i * arc;
-      ctx.fillStyle = colors[i];
       
+      ctx.fillStyle = "#fff";
+      ctx.beginPath();
+      ctx.arc(250 + Math.cos(angle)*225, 250 - Math.sin(angle)*225, 5, 0, Math.PI*2, false);
+      ctx.fill();
+
+      ctx.fillStyle = colors[i];
       ctx.beginPath();
       ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
       ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
-      ctx.stroke();
       ctx.fill();
       
       ctx.save();
@@ -86,7 +102,7 @@ function drawRouletteWheel() {
       
       //ctx.rotate( Math.PI*0.5);
 
-      var text = restaurants[i%restaurants.length];	
+      var text = restaurants[i%restaurants.length]; 
       //console.log(text);
       for(j=0;j<text.length;j++)
       {
@@ -138,6 +154,7 @@ function rotateWheel() {
     spinTime += 30;
     if(spinTime >= spinTimeTotal) {
       stopRotateWheel();
+      sheetDown();
       return;
     }
   }
@@ -157,6 +174,8 @@ function stopRotateWheel() {
   var text = restaurants[index%restaurants.length];
   ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
   ctx.restore();
+
+  document.getElementById('ripper').innerHTML = text;
 }
 
 function easeOut(t, b, c, d) {
