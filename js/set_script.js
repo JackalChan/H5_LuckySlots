@@ -150,9 +150,9 @@ function MENU() {
 		for(var i in this.items) {
 			var row = document.createElement('div');
 			var text = document.createElement('span');
-			var del = document.createElement('button');
+			var del = document.createElement('div');
 			text.innerHTML = this.items[i];
-			del.innerHTML = "X"
+			
 			del.setAttribute("onclick", "nowMenu.deleteItem("+i+")");
 			del.setAttribute("class", "deleteButton");
 			row.setAttribute("class","listText");

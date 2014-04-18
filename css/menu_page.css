@@ -84,10 +84,14 @@ button {
 }
 .deleteButton{
 	float: right;
-	line-height:30px;
+	line-height:40px;
+	background-image: url(../images/delete.png);
+	width:32px;
+	height: 32px;
+	cursor: pointer;
 }
 .listText{
-	line-height:30px;
+	line-height:40px;
 }
 .addListBox{
 	box-shadow: 2px 2px 2px #666;
