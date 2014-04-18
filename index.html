@@ -34,12 +34,13 @@
 
 <body>  
   
-  <!-- main page -->
-  <div id="main-container" class="container">
-    <div id="header">
+  <div id="header">
       <select id='selectMenu'></select>
       <button id="setting-button" onclick="menuList.show('menu')">setting</button>
-    </div>
+  </div>
+  <!-- main page -->
+  <div id="main-container" class="container">
+    
     <canvas id="wheelcanvas" width="500" height="500"></canvas>
 
     <div class="bar" id="startbox">
@@ -59,12 +60,14 @@
   
   <div id="menu-container" class="container" style="display:none;">
     
-    <div class="top-bar">項目列表</div>
+    <div class="top-bar">
 
-    <button id="back-game-button" class="button small round orange" onclick="menuList.show('main')">返回</button>
+
+    <button id="back-game-button" class="button small round orange" style='float:left;' onclick="menuList.show('main')">返回</button>
+    項目列表
     <button id="add-menu-button" class="button small round orange" style='float:right;' onclick="menuList.add()">新增</button>
 
-    <div style='margin-top:10px;height:5px;background-color:burlywood;position: relative;'></div> 
+    <div style='margin-top:10px;height:5px;background-color:burlywood;position: relative;'></div> </div>
     <!-- <div>================================</div> -->
     
     <!-- menu list -->

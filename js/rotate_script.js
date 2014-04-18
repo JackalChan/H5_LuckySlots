@@ -140,7 +140,7 @@ function spin() {
   wheelStop = false;
   spinAngleStart = Math.random() * 10 + 10;
   spinTime = 0;
-  spinTimeTotal = Math.random() * 3 + 4 * 1000;
+  spinTimeTotal = 4800;
   rotateWheel();
 }
 
@@ -151,7 +151,7 @@ function rotateStop() {
 
 function rotateWheel() {
   if(wheelStop) {
-    spinTime += 30;
+    spinTime += 10;
     if(spinTime >= spinTimeTotal) {
       stopRotateWheel();
       sheetDown();
