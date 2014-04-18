@@ -12,12 +12,14 @@
 
 .barbase
 {
-  background: lightyellow;
+  //background: lightyellow;
   width: 100%;
   height: 50%;
-  border-radius: 40%;
+  //border-radius: 40%;
   position: relative;
   top: 25%;
+  background-image: url(../images/shape.png);
+  background-size: 100% 100%;
 }
 
 .barorbit
@@ -37,11 +39,13 @@
   height: 25%;
   position: relative;
   left: 25%;
-  border-radius: 50%;
-  background: red;
+  //border-radius: 50%;
+  //background: red;
   top: -45%;
-  transform: translatez(50px) scale(0.5, 0.5);
-  -webkit-transform: translatez(50px) scale(0.5, 0.5);
+  transform: translatez(50px) scale(0.6, 0.6);
+  -webkit-transform: translatez(50px) scale(0.6, 0.6);
+  background-image: url(../images/5.png);
+  background-size: 100% 100%;
 }
 
 .barpole

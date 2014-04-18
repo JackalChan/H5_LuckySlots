@@ -58,7 +58,7 @@ function drawRouletteWheel() {
   if (canvas.getContext) {
     var outsideRadius = 200;
     var textRadius = 160;
-    var insideRadius = 35;
+    var insideRadius = 25;
     
     ctx = canvas.getContext("2d");
     ctx.clearRect(0,0,500,500);
@@ -69,15 +69,15 @@ function drawRouletteWheel() {
     
     ctx.font = 'bold 14px Arial';
     
-    ctx.fillStyle = "#F00";
-    ctx.beginPath();
-    ctx.arc(250, 250, outsideRadius+40, 0, Math.PI*2, false);
-    ctx.fill();
+    // ctx.fillStyle = "#F00";
+    // ctx.beginPath();
+    // ctx.arc(250, 250, outsideRadius+40, 0, Math.PI*2, false);
+    // ctx.fill();
 
-    ctx.fillStyle = "#FEFF01";
-    ctx.beginPath();
-    ctx.arc(250, 250, outsideRadius+10, 0, Math.PI*2, false);
-    ctx.fill();
+    // ctx.fillStyle = "#FEFF01";
+    // ctx.beginPath();
+    // ctx.arc(250, 250, outsideRadius+10, 0, Math.PI*2, false);
+    // ctx.fill();
 
     for(var i = 0; i < 10; i++) {
       var angle = startAngle + i * arc;

@@ -24,7 +24,10 @@ button {
 	font-weight: 600;
 
 }
-
+#dishcover {
+	position: relative;
+	bottom: 31.5em;
+}
 /*main page*/
 #selectMenu {
 	width: 70%;
