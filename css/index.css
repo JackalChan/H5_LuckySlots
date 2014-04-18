@@ -1,7 +1,7 @@
 @charset "UTF-8";
-#main-container {
-  /*display: -webkit-box;
-  display: -webkit-flex;*/
+.main-container-show {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-direction: normal;
   -moz-box-direction: normal;
