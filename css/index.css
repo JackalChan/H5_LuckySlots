@@ -1,4 +1,7 @@
 @charset "UTF-8";
+.main-container-hide {
+  display: none;
+}
 .main-container-show {
   display: -webkit-box;
   display: -webkit-flex;

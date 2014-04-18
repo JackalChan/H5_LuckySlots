@@ -72,17 +72,20 @@ var menuList = {
 		var menuContainer = document.getElementById('menu-container');
 		var itemContainer = document.getElementById('item-container');
 		if(str == 'menu') {
-			mainContainer.style.display = 'none';
+			//mainContainer.style.display = 'none';
+			mainContainer.setAttribute("class", "container main-container-hide");
 			menuContainer.style.display = 'block';
 			itemContainer.style.display = 'none';
 		}
 		else if(str == 'item') {
-			mainContainer.style.display = 'none';
+			//mainContainer.style.display = 'none';
+			mainContainer.setAttribute("class", "container main-container-hide");
 			menuContainer.style.display = 'none';
 			itemContainer.style.display = 'block';
 		}
 		else if(str == 'main') {
-			mainContainer.style.display = 'flex';
+			//mainContainer.style.display = 'flex';
+			mainContainer.setAttribute("class", "container main-container-show");
 			menuContainer.style.display = 'none';
 			itemContainer.style.display = 'none';
 		}
