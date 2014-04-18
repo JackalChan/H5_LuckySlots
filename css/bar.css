@@ -24,11 +24,13 @@
 
 .barorbit
 {
-  width: 12%;
+  visibility: hidden;
+  width: 6%;
   height: 95%;
-  background: gray;
+  background: darkgray;
+  box-shadow: 0px 0px 2px 2px gray inset;
   position: relative;
-  left: 44%;
+  left: 47%;
   top: 2.5%;
   border-radius: 40% / 10%;
 }
@@ -41,7 +43,7 @@
   left: 25%;
   //border-radius: 50%;
   //background: red;
-  top: -45%;
+  top: -33%;
   transform: translatez(50px) scale(0.6, 0.6);
   -webkit-transform: translatez(50px) scale(0.6, 0.6);
   background-image: url(../images/5.png);

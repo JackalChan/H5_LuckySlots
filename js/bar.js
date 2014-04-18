@@ -2,7 +2,7 @@ function Bar(obj)
 {
   this.presspos = -1;
   this.size = 400;
-  this.toppercent = -45;
+  this.toppercent = -33;
   this.downpercent = -20;
   this.nowpercent = -45;
   this.hidetoppercent = -40;
@@ -11,6 +11,8 @@ function Bar(obj)
   this.obj = obj;
   this.releasetime;
   this.speed = 3;
+
+  this.obj.hidePole();
 }
 
 Bar.prototype.startMoveBar = function(pos)
@@ -58,17 +60,17 @@ Bar.prototype.changePoleStatus = function(newp)
      this.polestatus != 3)
   {
     this.polestatus = 3; // hide
-    this.obj.hidePole();
+//    this.obj.hidePole();
   }
   else if(newp > this.hidedownpercent && this.polestatus != 2)
   {
     this.polestatus = 2;
-    this.obj.downPole();
+//    this.obj.downPole();
   }
   else if(newp < this.hidetoppercent && this.polestatus != 1)
   {
     this.polestatus = 1;
-    this.obj.upPole();
+//    this.obj.upPole();
   }
 }
 
