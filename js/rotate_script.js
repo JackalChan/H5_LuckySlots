@@ -174,7 +174,7 @@ function stopRotateWheel() {
   ctx.save();
   ctx.font = 'bold 30px sans-serif';
   var text = restaurants[index%restaurants.length];
-  ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
+  //ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
   ctx.restore();
 
   document.getElementById('ripper').innerHTML = text;
