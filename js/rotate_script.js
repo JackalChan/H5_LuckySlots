@@ -3,7 +3,8 @@ var restaurants;
 // var colors = ["#FFF", "#3AB745", "#029990", "#3501CB",
 // "#2E2C75", "#673A7E", "#CC0071", "#F80120",
 // "#F35B20", "#FB9A00", "#FFCC00", "#FEF200"];
-var colors = ["#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5"];
+//var colors = ["#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5", "#FC7EA3", "#F7F4A5"];
+var colors = ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff"];
 // var restaurants = ["雞肉飯1", "肯德基2", "麥當勞3", "Pizza",
 // "雞肉飯4", "肯德基5", "麥當勞6", "肯德基7",
 // "肯德基8", "麥當勞9", "盧肉販1", "盧肉販2"];
@@ -90,6 +91,7 @@ function drawRouletteWheel() {
       ctx.beginPath();
       ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
       ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
+      ctx.stroke();
       ctx.fill();
       
       ctx.save();
