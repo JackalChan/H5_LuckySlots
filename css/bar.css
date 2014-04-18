@@ -6,7 +6,7 @@
   -webkit-perspective: 100px;
 
   position: relative;
-  bottom: 21.7em;
+  bottom: 56em;
   left: calc(50% - 100px);
   z-index: 5;
 }

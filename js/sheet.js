@@ -32,4 +32,6 @@ function sheetDelete() {
 
   t[0].removeChild(ripper);
   t[0].appendChild(r);
+
+  initSheet();
 }
