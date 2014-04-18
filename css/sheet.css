@@ -15,6 +15,7 @@
   text-align: center;
   padding: .5em 0;
   position: relative;
+  left: calc(50% - 6em);
   float: center;
   width: 12em;
   height: 2em;
