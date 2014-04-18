@@ -99,12 +99,17 @@ var menuList = {
 }
 
 function initEvent() {
-	var addItemButton = document.getElementById('add-item-button');
 	var addItemText = document.getElementById('add-item-text');
-	addItemButton.onclick = function() {
-		nowMenu.addItem(addItemText.value);
-		addItemText.value = '';
-	}
+	 // addItemButton.onclick = function() {
+	 //  nowMenu.addItem(addItemText.value);
+	 //  addItemText.value = '';
+	 // }
+	 addItemText.onkeyup = function(e) {
+	  if (e.keyCode == 13) {
+	   nowMenu.addItem(addItemText.value);
+	   addItemText.value = '';
+	  }
+	 }
 }
 
 /* Object */
@@ -139,6 +144,7 @@ function MENU() {
 		while(list.hasChildNodes()) {
 			list.removeChild(list.lastChild);
 		}
+
 		// append all items in page
 		for(var i in this.items) {
 			var row = document.createElement('div');
@@ -147,6 +153,8 @@ function MENU() {
 			text.innerHTML = this.items[i];
 			del.innerHTML = "X"
 			del.setAttribute("onclick", "nowMenu.deleteItem("+i+")");
+			del.setAttribute("class", "deleteButton");
+			row.setAttribute("class","listText");
 			row.appendChild(text);
 			row.appendChild(del);
 			list.appendChild(row);
