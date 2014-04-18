@@ -25,6 +25,7 @@ window.onload = function() {
 
   initBar();
   initSheet();
+  initTran();
 
   getMenuList();
 }

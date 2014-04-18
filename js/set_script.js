@@ -67,7 +67,7 @@ var menuList = {
 		}
 	},
 
-	show: function(str) {
+	show: function(str) {/*
 		var mainContainer = document.getElementById('main-container');
 		var menuContainer = document.getElementById('menu-container');
 		var itemContainer = document.getElementById('item-container');
@@ -88,7 +88,8 @@ var menuList = {
 			mainContainer.setAttribute("class", "container main-container-show");
 			menuContainer.style.display = 'none';
 			itemContainer.style.display = 'none';
-		}
+		}*/
+    idxtran.show(str);
 		this.update();
 	},
 
