@@ -28,6 +28,11 @@ window.onload = function() {
   initTran();
 
   getMenuList();
+  loadOptionImages();
+  initLightbox();
+
+  setVolume("audio-bgm", 0.3);
+  playSound("audio-bgm");
 }
 var menusName=[];
 function getMenuList(){
@@ -68,7 +73,7 @@ function drawRouletteWheel() {
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
     
-    ctx.font = 'bold 14px Arial';
+    ctx.font = 'bold 1.8vw Arial';
     
     // ctx.fillStyle = "#F00";
     // ctx.beginPath();
@@ -145,6 +150,8 @@ function spin() {
   spinTime = 0;
   spinTimeTotal = 4800;
   rotateWheel();
+  playSound('audio-pull');
+  playSound('audio-spin');
 }
 
 function rotateStop() {
@@ -158,6 +165,7 @@ function rotateWheel() {
     if(spinTime >= spinTimeTotal) {
       stopRotateWheel();
       sheetDown();
+      playSound('audio-print');
       return;
     }
   }
@@ -178,6 +186,16 @@ function stopRotateWheel() {
   //ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
   ctx.restore();
 
+  console.log(story1Img[text]);
+  
+  if(story1Img[text]) {
+    var lightbox = document.getElementById('lightbox');
+    var boxImage = document.getElementById('boxImage');
+    boxImage.src = story1Img[text];
+    lightbox.classList.remove('lightbox-hide');
+    lightbox.classList.add('lightbox-show');
+  }
+
   document.getElementById('ripper').innerHTML = text;
 }
 
@@ -185,4 +203,25 @@ function easeOut(t, b, c, d) {
   var ts = (t/=d)*t;
   var tc = ts*t;
   return b+c*(tc + -3*ts + 3*t);
+}
+
+function playSound(id) {
+  var a = document.getElementById(id);
+  if(!a.paused) {
+    a.pause();
+    a.currentTime = 0;
+  }
+  a.play();
+}
+function setVolume(id, volume) {
+  var a = document.getElementById(id);
+  a.volume = volume;
+}
+
+var story1Img = [];
+function loadOptionImages() {
+  story1Img ['比基尼'] = 'images/pedro/bikini.png';
+  story1Img ['丁字褲'] = 'images/pedro/gstring.png';
+  story1Img['印度阿三'] = 'images/pedro/india.png';
+  story1Img['蘇格蘭裙'] = 'images/pedro/scotland.png';
 }

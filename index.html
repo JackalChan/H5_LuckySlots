@@ -30,12 +30,20 @@
   <script src="js/jquery.gsap.min.js"></script>
   <script src="js/jqSwipe.js"></script>
 
-
-
 </head>
 
 <body>  
-  
+  <audio id="audio-bgm" preload="auto" loop>
+    <source src="audio/Indie_Romance.wav" type="audio/wav"></audio>
+  <audio id="audio-pull" preload="auto">
+    <source src="audio/bar-pulling.wav" type="audio/wav"></audio>
+  <audio id="audio-print" preload="auto">
+    <source src="audio/printout.wav" type="audio/wav"></audio>
+  <audio id="audio-spin" preload="auto">
+    <source src="audio/spinning.wav" type="audio/wav"></audio>
+  <audio id="audio-tear" preload="auto">
+    <source src="audio/tearing.wav" type="audio/wav"></audio>
+
   <!-- main page -->
   <div id="main-container" class="container main-container-show">
     <div id="header">
@@ -43,7 +51,7 @@
       <button id="setting-button" onclick="menuList.show('menu')"></button>
     </div>
     <canvas id="wheelcanvas" width="500" height="500"></canvas>
-    <img id="dishcover" src="images/dishcover.png" alt="dishcover" height="500" width="500">
+    <p><img id="dishcover" src="images/dishcover.png" alt="dishcover" height="500" width="500"></p>
     <div class="bar" id="startbox">
       <div class="barbase">
         <div class="barorbit"></div>
@@ -91,7 +99,7 @@
     <div id="item-wrapper">
 
       <input type="text" id="menu-title" style='border: 3px solid #a26b23;font-size:20px;' placeholder="請輸入名稱">
-      <div class='addListBox'>
+      <div class='addListBox' style='height:65%'>
           <input type="text" id="add-item-text" class='inputBox' placeholder="請輸入項目">
           <div id="item-list">
 
@@ -108,6 +116,14 @@
     
 
   </div>
+
+  <div id="lightbox" class="lightbox-hide">
+    <img id="boxImage" src="images/pedro/india.png">
+  </div>
+  <!-- <audio loop autoplay>                                                     
+    <source src="audio/Indie_Romance.mp3" type="audio/mpeg">
+    Your browser does not support HTML5 audio.
+  </audio> -->
 
 </body>
 </html>

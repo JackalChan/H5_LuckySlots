@@ -1,4 +1,5 @@
 var nowMenu;
+
 var menuList = {
 
 	menus: [],
@@ -25,9 +26,43 @@ var menuList = {
 			tmp2.name = '中午吃什麼？';
 			tmp2.items = ['高雄空廚-葷', '高雄空廚-素'];
 			
-			this.menus.push(tmp2);
-			this.menus.push(tmp);
+
+			var story1 = new MENU();
+			story1.exist = true;
+			story1.name = '上班穿什麼？';
+			story1.items = ['丁字褲', '比基尼', '蘇格蘭裙', '印度阿三'];
+
+			var story2 = new MENU();
+			story2.exist = true;
+			story2.name = '午餐訂什麼？';
+			story2.items = ['空廚-葷', '空廚-素'];
+
+			var story3 = new MENU();
+			story3.exist = true;
+			story3.name = '旅遊景點去哪裡？';
+			story3.items = ['桃園縣芝巴里', '香港龜頭嶺', '日本觸摸', '美國雙蛋', '日本鼻毛', 
+											'雲林灣龜頭', '雲林林北村', '雲林龜仔頭', '台東大鳥'];
+
+			var story4 = new MENU();
+			story4.exist = true;
+			story4.name = '誰會拿到冠軍？';
+			story4.items = ['退回空廚', '逐條審查'];
 			
+			var story5 = new MENU();
+			story5.exist = true;
+			story5.name = '我的夢中情人？';
+			story5.items = ['傑夫', '洛伊德', '湯泥', '湯米', '泰瑞', 
+											'阿明', '傑摳兒', '榮哥', '歐神', '妮基'];
+
+			// this.menus.push(tmp2);
+			// this.menus.push(tmp);
+
+			this.menus.push(story5);
+			this.menus.push(story4);
+			this.menus.push(story3);
+			this.menus.push(story2);
+			this.menus.push(story1);
+
 			localStorage.setItem("LuckyShots", JSON.stringify(menuList));
 		}
 		this.update();

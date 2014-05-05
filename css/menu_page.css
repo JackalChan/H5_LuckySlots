@@ -3,9 +3,9 @@
 	margin: 0;
 }
 body {
-	background-image: url(../images/background-1.jpg);
+	background-image: url(../images/bu.gif);
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
 }
 button {
 	font-size: 30px;
@@ -21,7 +21,7 @@ button {
 .top-bar {
 	
 	width: 100%;
-	
+	top:0px;
 	line-height: 70px;
 	text-align: center;
 	background-image: url(../images/setbar.jpg);
@@ -30,18 +30,25 @@ button {
 
 }
 #dishcover {
-	position: relative;
-	bottom: 31.5em;
+		position: absolute;
+  top: calc(50% - 250px);
+  left: calc(50% - 250px);
+
 }
 /*main page*/
 #selectMenu {
 	width: 70%;
-	font-size: 40px;
+	font-size: 20px;
 	position: relative;
 	float: left;
+	width: 240px;
+  height: 34px;
+  overflow: hidden;
+   
+  border: 1px solid #ccc;
 }
 #setting-button {
-	position: relative;
+	position: absolute;
 	font-size: 40px;
 	background-image: url(../images/setting.png);
 	border: none;
@@ -49,11 +56,13 @@ button {
 	-webkit-background-size: auto 100%;
 	background-size: auto 100%;
 	background-repeat: no-repeat;
-	width: 80px;
-	height: 80px;
-	margin-left: 20px;
+	width: 48px;
+	height: 48px;
+	/*margin-left: 80%;*/
 	/*float: right;
 	clear: both;*/
+	
+	right: 0;
 }
 /*button*/
 .top-button {

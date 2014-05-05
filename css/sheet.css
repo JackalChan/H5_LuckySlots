@@ -1,16 +1,16 @@
 .tearoff {
-  /*width: 38.45em;*/
+   /*width: 38.45em;*/
   -webkit-filter: drop-shadow(1px 1px 2px hsla(0,0%,0%,.25));
   position: relative;
-  bottom: 60em;
-  z-index: 1;
+  top: calc(50% + 85px);
+  z-index: -1;
 }
 #ripper {
   background-color: #fff;
   background-clip: padding-box;
   border-top: 7px dotted #fff;
   
-  font: 1.5em/2em sans-serif; /* font size / line height */
+  font: 1.3em/5em sans-serif; /* font size / line height */
   margin: 0;
   text-align: center;
   padding: .5em 0;
@@ -18,8 +18,7 @@
   left: calc(50% - 6em);
   float: center;
   width: 12em;
-  height: 2em;
-  
+  height: 5em;
 }
 /*p:hover {
   animation: tearoff 1s both;
@@ -60,5 +59,6 @@
   100% { 
     top: 8.5em;
     right: 7em;
+    opacity: 0;
   }
 }
